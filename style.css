@@ -1,0 +1,653 @@
+/* Global Styles */
+body {
+  text-align: center;
+  width: 500px;
+  height: 1000px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Scroll Image Styles */
+#scroll-image {
+  width: 100%;
+  height: 100%;
+  background-image: url("/img/bg_frame1.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  z-index: 1;
+}
+/* above image for other animation positions */
+#above-img{
+  width: 100%;
+  height: 100%;
+  background-image: url("/img/drink_fries_burger_chicken.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 3;
+}
+/* Overlay for Dynamic Image */
+#overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Dynamic Image Styles */
+#dynamic-image {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform-origin: center;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Animation for background images */
+@keyframes changeBackground {
+  0%,
+  40.66% {
+    background-image: url("/img/bg_frame1.jpg");
+  }
+  40.66%,
+  41.06% {
+    background-image: url("/img/bg_frame1.jpg");
+  }
+  42.07%,
+  58.3% {
+    background-image: url("/img/bg_frame3.jpg");
+  }
+  58.71%,
+  74% {
+    background-image: url("/img/bg_frame4.jpg");
+  }
+  74.1%,
+  100% {
+    background-image: url("/img/bg_frame5.jpg");
+  }
+}
+
+/* Animation for dynamic images */
+@keyframes changeOverlayImage {
+  0% {
+    opacity: 0;
+  }
+  39.07% {
+    opacity: 1;
+    transform: scale(1);
+    background-image: url("/img/drink_fries_burger_chicken.png");
+  }
+  44.07% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  56.70% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  57.71% {
+    opacity: 1;
+    transform: scale(1);
+    background-image: url("/img/drink_fries_burger_cheese.png");
+  }
+  60.71% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  73.40% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  73.41% {
+    opacity: 1;
+    transform: scale(1);
+    background-image: url("/img/drink_fries_burger_fish.png");
+  }
+  76.41% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes changeAboveImage{
+  0%,
+  40.66% {
+    background-image: url("/img/drink_fries_burger_chicken.png");
+  }
+  40.66%,
+  41.06% {
+    background-image: url("/img/drink_fries_burger_chicken.png");
+  }
+  42.07%,
+  58.3% {
+    background-image: url("/img/drink_fries_burger_cheese.png");
+  }
+  58.71%,
+  75% {
+    background-image: url("/img/drink_fries_burger_fish.png");
+  }
+  75.1%{
+    background-image: url("/img/bg_frame5.jpg");
+    opacity: 1;
+  }
+  77%,100%{
+    opacity: 0;
+  }
+}
+
+/* Attach animations to the divs */
+.animated-bg {
+  animation: changeBackground 12s infinite forwards;
+}
+
+.animated-overlay {
+  animation: changeOverlayImage 12s infinite forwards;
+}
+.above{
+  animation: changeAboveImage 12s infinite forwards;
+
+}
+/* add footer logo */
+@keyframes footerFade {
+  4%,
+  100% {
+    opacity: 1;
+  }
+}
+
+#footer-logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0.1;
+  z-index: 11;
+  animation: footerFade 12s infinite forwards;
+}
+/* headline 890 animation */
+@keyframes headlineAnimation{
+  6%{
+    transform: translateY(-60px) scale(1);
+    
+  }
+  20%{
+    transform: translateY(-60px) scale(1);
+  }
+  23.5%{
+    transform: translate(-30px, 60px) scale(0);
+  }
+  100%{
+    transform: scale(0);
+  }
+}
+#headline-890{
+  position: absolute;
+  transform: scale(0.1);
+  top: 180px;
+  left: 0px;
+  z-index: 2;
+  animation: headlineAnimation 12s infinite forwards;
+}
+/* strap animations */
+@keyframes redStripeAnimation{
+  6.6%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+
+  }
+  8.6%,39%{
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  40%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  45.5%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  47.5%, 57.75%  {
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  58.75%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  62.8%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  64.8%, 74%{
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  75%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+
+
+}
+@keyframes blueStripeAnimation{
+  7.5%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+
+  }
+  9.5%,39%{
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  40%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  46.5%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  48.5%, 57.75%  {
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  58.75%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  63.8%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  66.8%, 74%{
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  75%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  
+}
+@keyframes yellowStripeAnimation{
+  8.6%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+
+  }
+  10.25%,39%{
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  40%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  47.5%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  49.5%, 57.75%  {
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  58.75%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  64.8%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  68.8%, 74%{
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  75%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+}
+@keyframes greenStripeAnimation{
+  9.25%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+
+  }
+  11%,39%{
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  40%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  48.5%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  50.5%, 57.75%  {
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  58.75%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  65.8%{
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  70%, 74%{
+    opacity: 1;
+    transform: translateX(60px) scale(1);
+  }
+  75%{
+    transform: translateX(420px);
+    opacity: 0;
+  }
+
+}
+#stripes-div{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+
+}
+#stripe_red{
+  position: absolute;
+  transform: scale(0.1);
+  opacity: 0;
+  z-index: 2;
+  right: 45px;
+  top: 250px;
+  animation: redStripeAnimation 12s infinite forwards;
+
+}
+#stripe_blue{
+  position: absolute;
+  transform: scale(0.1);
+  opacity: 0;
+  z-index: 2;
+  right: 45px;
+  top: 250px;
+  animation: blueStripeAnimation 12s infinite forwards;
+
+}
+#stripe_yellow{
+  position: absolute;
+  transform: scale(0.1);
+  opacity: 0;
+  z-index: 2;
+  right: 45px;
+  top: 250px;
+  animation: yellowStripeAnimation 12s infinite forwards;
+
+}
+#stripe_green{
+  position: absolute;
+  transform: scale(0.1);
+  opacity: 0;
+  z-index: 2;
+  right: 45px;
+  top: 250px;
+  animation: greenStripeAnimation 12s infinite forwards;
+
+}
+/* bigbang and price */
+@keyframes bigBangAnimation{
+  23.75%{
+    opacity: 0;
+    transform: translateX(0) scale(0.1);
+
+  }
+  26.25%,40%{
+    opacity: 1;
+    transform: translate(-100px,-100px) scale(1);
+  }
+  42%{
+    transform: translate(-100px,-100px) scale(1.2);
+  }
+  43.75%,57%{
+    opacity: 1;
+    transform: translate(-100px,-100px) scale(1);
+
+  }
+  59%{
+    transform: translate(-100px,-100px) scale(1.2);
+  }
+  60.75%{
+    opacity: 1;
+    transform: translate(-100px,-100px) scale(1);
+  }
+  74%{
+    opacity: 1;
+    transform: translate(-100px,-100px) scale(1);
+
+  }
+  75%,100%{
+    opacity: 0;
+    transform: translate(-100px,-100px) scale(1);
+
+  }
+
+
+
+}
+@keyframes priceAnimation{
+  23.75%{
+    opacity: 0;
+    transform: translateX(0) scale(0.1);
+
+  }
+  26.25%{
+    opacity: 1;
+    transform: translate(-100px,-100px) scale(1);
+  }
+  74%{
+    opacity: 1;
+    transform: translate(-100px,-100px) scale(1);
+
+  }
+  75%,100%{
+    opacity: 0;
+    transform: translate(-100px,-100px) scale(1);
+
+  }
+}
+#bigbang{
+  position: absolute;
+  transform: scale(0.1);
+  z-index: 2;
+  opacity: 0;
+  left: 100px;
+  top: 280px;
+  animation: bigBangAnimation 12s infinite forwards;
+
+}
+#price_890{
+  position: absolute;
+  z-index: 2;
+  left: 120px;
+  top: 460px;
+  animation: priceAnimation 12s infinite forwards;
+
+}
+
+/* animations of txt images */
+
+@keyframes changeTxtChicken{
+  0%,27.5%{
+    opacity: 0;
+    transform: translate(0,0);
+  }
+  29%{
+    opacity: 1;
+    transform: translate(-10px,-10px);
+  }
+  30%,39%{
+    opacity: 1;
+    transform: translate(0.01px,0.01px);
+  }
+  40%,100%{
+    opacity: 0;
+  }
+}
+
+#txt_chicken_paprika {
+  position: absolute;
+  z-index: 13;
+  right: 70px;
+  bottom: 240px;
+  opacity: 0;
+  animation: changeTxtChicken 12s infinite forwards;
+}
+
+@keyframes changeTxtDouble {
+  0%,50%{
+    opacity: 0;
+    transform: translate(0,0);
+  }
+  52.75%{
+    opacity: 1;
+    transform: translate(-10px,-10px);
+  }
+  53.75%,57.75%{
+    opacity: 1;
+    transform: translate(0.01px,0.01px);
+  }
+  58.75%,100%{
+    opacity: 0;
+  }
+
+}
+#txt_double_cheeseburger{
+  position: absolute;
+  z-index: 13;
+  right: 20px;
+  bottom: 240px;
+  opacity: 0;
+  animation: changeTxtDouble 12s infinite forwards;
+}
+
+@keyframes changeTxtFilet {
+  0%,67.5%{
+    opacity: 0;
+    transform: translate(0,0);
+  }
+  69%{
+    opacity: 1;
+    transform: translate(-10px,-10px);
+  }
+  70%,73%{
+    opacity: 1;
+    transform: translate(0.01px,0.01px);
+  }
+  74%,100%{
+    opacity: 0;
+  }
+
+}
+#txt_filet-o-fish{
+  position: absolute;
+  z-index: 13;
+  right: 100px;
+  bottom: 250px;
+  opacity: 0;
+  animation: changeTxtFilet 12s infinite forwards;
+}
+
+/* animation ending */
+@keyframes txtEnd {
+  0%, 80.5% {
+    transform: translate(0, 0) scale(0.01);
+    opacity: 0;
+  }
+  81.5%{
+    opacity: 1;
+  }
+  82%, 100% {
+    opacity: 1;
+    transform: translateX(-200px) scale(1);
+  }
+}
+
+
+#txt-end {
+  position: absolute;
+  transform: scale(0.01);
+  z-index: 13;
+  top: 0;
+  opacity: 0;
+  left: 200px;
+  animation: txtEnd 12s infinite forwards;
+}
+
+
+
+@keyframes buttonAnimation {
+  0%, 80% {
+    transform: translateX(0px) scale(1); 
+    transform-origin: center; 
+  }
+  82% {
+    transform: translateX(-500px) scale(1); 
+    transform-origin: center;
+  }
+  86% {
+    transform: translateX(-500px) scale(1);
+    transform-origin: center;
+  }
+  87% {
+    transform: translateX(-500px) scale(0.95);
+    transform-origin: center;
+  }
+  88%{
+    transform: translateX(-500px) scale(1); 
+    transform-origin: center;
+  }
+  90%{
+    transform: translateX(-500px) scale(1);
+    transform-origin: center;
+  }
+  91%{
+    transform: translateX(-500px) scale(0.95);
+    transform-origin: center;
+  }
+  92%,100%{
+    transform: translateX(-500px) scale(1);
+    transform-origin: center;
+  }
+}
+
+#button-div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 13;
+
+}
+
+#button-cta {
+  position: absolute;
+  left: 500px;
+  top: 0px;
+  z-index: 13;
+  animation: buttonAnimation 12s infinite forwards;
+  transform-origin: center; 
+}
